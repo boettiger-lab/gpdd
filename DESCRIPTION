@@ -1,13 +1,13 @@
 Package: gpdd
-Title: What the Package Does (One Line, Title Case)
+Title: Download datasets from the Global Population Dynamics Database.
 Version: 0.0.0.9000
 Authors@R: 
     person(given = "First",
            family = "Last",
            role = c("aut", "cre"),
            email = "first.last@example.com")
-Description: What the package does (one paragraph).
+Description: Download data from GPDD (https://knb.ecoinformatics.org/view/doi:10.5063/F1BZ63Z8).
 License: What license it uses
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 6.0.1.9000
+RoxygenNote: 6.1.0
