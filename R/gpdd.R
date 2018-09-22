@@ -1,22 +1,35 @@
- 
 
-#' Download Tables from the GPDD Data
-#' @param table name of the table to be downloaded.
-#' @return the requested data.frame (as a tibble)
-#' @export
-#' @examples 
-#' gpdd("location")
-gpdd <- function(table = c("data", "main", "timeperiod", "location")){
-  
-  table <- match.arg(table)
-  
-  url <- switch(table,
-                location = "https://knb.ecoinformatics.org/knb/d1/mn/v2/object/df35b.239.1",
-                main = "https://knb.ecoinformatics.org/knb/d1/mn/v2/object/df35b.234.1")
-    
+#' Download Data from GPDD.
+#'
+#' @author Zihao Li, \email{zihao0104@@berkeley.edu}
+#' @param dataset_name A string of the name of the dataset.
+#' @return The requested dataset in tibble format.
+#' @examples
+#' download_gpdd('data')
+#' download_gpdd('timeperiod')
 
-      
-  readr::read_csv(url)
-  
-  
+
+download_gpdd <- function(dataset_name =  c("data",
+                                            "main",
+                                            "timeperiod",
+                                            "taxon", 
+                                            "datasource", 
+                                            "biotope", 
+                                            "location")) {
+  dataset_name <- match.arg(dataset_name)
+  if (!is.character(dataset_name)) {
+    stop("Input must be a string")
+  }
+  data <- switch(dataset_name,
+    data = readr::read_csv("https://knb.ecoinformatics.org/knb/d1/mn/v2/object/df35b.233.1"),
+    main = readr::read_csv("https://knb.ecoinformatics.org/knb/d1/mn/v2/object/df35b.234.1"),
+    timeperiod = readr::read_csv("https://knb.ecoinformatics.org/knb/d1/mn/v2/object/df35b.235.1"),
+    taxon = readr::read_csv("https://knb.ecoinformatics.org/knb/d1/mn/v2/object/df35b.236.1"),
+    datasource = readr::read_csv("https://knb.ecoinformatics.org/knb/d1/mn/v2/object/df35b.237.1"),
+    biotope = readr::read_csv("https://knb.ecoinformatics.org/knb/d1/mn/v2/object/df35b.238.1"),
+    location = readr::read_csv("https://knb.ecoinformatics.org/knb/d1/mn/v2/object/df35b.239.1")
+  )
+  data
 }
+  
+  
