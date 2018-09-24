@@ -21,13 +21,20 @@ download_gpdd <- function(dataset_name =  c("data",
     stop("Input must be a string")
   }
   data <- switch(dataset_name,
-    data = readr::read_csv("https://knb.ecoinformatics.org/knb/d1/mn/v2/object/df35b.233.1"),
-    main = readr::read_csv("https://knb.ecoinformatics.org/knb/d1/mn/v2/object/df35b.234.1"),
-    timeperiod = readr::read_csv("https://knb.ecoinformatics.org/knb/d1/mn/v2/object/df35b.235.1"),
-    taxon = readr::read_csv("https://knb.ecoinformatics.org/knb/d1/mn/v2/object/df35b.236.1"),
-    datasource = readr::read_csv("https://knb.ecoinformatics.org/knb/d1/mn/v2/object/df35b.237.1"),
-    biotope = readr::read_csv("https://knb.ecoinformatics.org/knb/d1/mn/v2/object/df35b.238.1"),
-    location = readr::read_csv("https://knb.ecoinformatics.org/knb/d1/mn/v2/object/df35b.239.1")
+    data = readr::read_csv("https://knb.ecoinformatics.org/knb/d1/mn/v2/object/df35b.233.1",
+                           col_types = cols()),
+    main = readr::read_csv("https://knb.ecoinformatics.org/knb/d1/mn/v2/object/df35b.234.1", 
+                           col_types = cols()),
+    timeperiod = readr::read_csv("https://knb.ecoinformatics.org/knb/d1/mn/v2/object/df35b.235.1", 
+                                 col_types = cols()),
+    taxon = readr::read_csv("https://knb.ecoinformatics.org/knb/d1/mn/v2/object/df35b.236.1", 
+                            col_types = cols()),
+    datasource = readr::read_csv("https://knb.ecoinformatics.org/knb/d1/mn/v2/object/df35b.237.1", 
+                                 col_types = cols()),
+    biotope = readr::read_csv("https://knb.ecoinformatics.org/knb/d1/mn/v2/object/df35b.238.1", 
+                              col_types = cols()),
+    location = readr::read_csv("https://knb.ecoinformatics.org/knb/d1/mn/v2/object/df35b.239.1", 
+                               col_types = cols())
   )
   data
 }
