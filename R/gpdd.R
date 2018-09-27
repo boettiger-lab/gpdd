@@ -4,6 +4,7 @@
 #' @author Zihao Li, \email{zihao0104@@berkeley.edu}
 #' @param dataset_name A string of the name of the dataset.
 #' @return The requested dataset in tibble format.
+#' @importFrom readr read_csv
 #' @examples
 #' download_gpdd('data')
 #' download_gpdd('timeperiod')
@@ -38,5 +39,4 @@ download_gpdd <- function(dataset_name =  c("data",
   )
   data
 }
-  
   
