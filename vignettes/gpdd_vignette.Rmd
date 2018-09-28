@@ -1,0 +1,57 @@
+---
+title: "GPDD Vignette"
+author: "Vignette Author"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+## Brief Introduction of GPDD
+
+The Global Population Dynamics Database (GPDD) is a large collection of animal and plant population data, which can be accessed through the [KNB website](https://knb.ecoinformatics.org/view/doi:10.5063/F1BZ63Z8). Below is the official abstract of the dataset. 
+
+"As a source of animal and plant population data, The Global Population Dynamics Database is unrivalled. Nearly five thousand separate time series are available here. In addition to all the population counts, there are taxonomic details of over 1400 species. The type of data contained in the GPDD varies enormously, from annual counts of mammals or birds at individual sampling sites, to weekly counts of zooplankton and other marine fauna. The project commenced in October 1994, following discussions on ways in which the collaborating partners could make a practical and enduring contribution to research into population dynamics. A small team was assembled and, with assistance and advice from numerous interested parties we decided to construct the database using the popular Microsoft Access platform. After an initial design phase, the major task has been that of locating, extracting, entering and validating the data in all the various tables. Now, nearly 5000 individual datasets have been entered onto the GPDD."
+
+The data is broken into seven text/csv files: data, main, timeperiod, taxon, datasource, biotope, and location, as well as a metadata file (in EML format) and a user guide (in PDF format). All files are available through the KNB website above. Our package provides a convenient way to download the datasets through R. 
+
+
+## Using the Package
+
+The package contains only one function `download_gpdd`, which takes in only one argument `dataset_name`. This argument should be one of "data", "main", "timeperiod", "taxon", "datasource", "biotope", and "location". Other strings or non-string inputs will raise an error. Please also make sure to install `readr` before using this package. An example would be:
+
+```{r}
+# By default, the argument is "data".
+data <- download_gpdd()
+summary(data)
+
+# Speficying the dataset to be downloaded.
+location <- download_gpdd("location")
+summary(location)
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
