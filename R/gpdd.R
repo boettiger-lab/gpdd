@@ -23,7 +23,6 @@ names(indexes) <- c(
 
 download_gpdd <- function(dataset_name = names(indexes)) {
   dataset_name <- match.arg(dataset_name)
-  if (!is.character(dataset_name)) stop("Input must be a string")
   url <- paste(
     "https://knb.ecoinformatics.org/knb/d1/mn/v2/object/df35b.",
     indexes[[dataset_name]],
