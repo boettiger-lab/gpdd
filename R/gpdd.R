@@ -29,5 +29,5 @@ download_gpdd <- function(dataset_name = names(indexes)) {
     indexes[[dataset_name]],
     ".1",
     sep = "")
-  read_csv(url, col_types = cols())
+  read_csv(url)
 }
