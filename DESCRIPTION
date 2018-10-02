@@ -3,7 +3,8 @@ Title: Download datasets from the Global Population Dynamics Database.
 Version: 0.0.0.9000
 Authors@R: as.person(c(
     "Carl Boettiger <cboettig@berkeley.edu> [aut, cre]", 
-    "Zihao Li <zihao0104@berkeley.edu> [aut]"
+    "Zihao Li <zihao0104@berkeley.edu> [aut]",
+    "Brian Blair <r@ninth.cat> [aut]"
   ))
 Description: This package downloads datasets from the Global Population Dynamics Database (GPDD), 
     a large collection of animal and plant population data. All data and information, including
