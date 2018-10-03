@@ -9,13 +9,23 @@ This package provides an efficient way to access datasets in the Global Populati
 
 ### Installation
 
-asdf
+`gpdd` can be installed with the following code:
+
+```
+install.packages("devtools")  # if you haven't installed the "devtools package"
+devtools::install_github("boettiger-lab/gpdd")
+```
 
 ## Usage
 
-This package contains one function `gpdd`, which takes one parameter `table` (the requested dataset) and returns the dataset. Allowed parameter inputs are "data", <???>; [other inputs will raise an error.] Example below:
-
+This package contains one function `gpdd`, which takes one parameter `table` (the requested dataset) and returns the dataset. Allowed parameter inputs are "data", "main", "timeperiod", "taxon", "datasource", "biotope", and "location"; other inputs will raise an error. Example below:
 
 ```
-code
+# Default argument as "data".
+data <- download_gpdd()
+summary(data)
+
+# Specifying the dataset to be downloaded.
+location <- download_gpdd("location")
+summary(location)
 ```
