@@ -18,7 +18,9 @@ Imports:
 VignetteBuilder:
     utils,
     knitr
-Suggests: testthat,
+Suggests: 
+    testthat,
     utils,
     knitr,
-    rmarkdown
+    rmarkdown,
+    covr
