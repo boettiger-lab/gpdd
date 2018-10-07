@@ -2,9 +2,11 @@
 #' Download Data from GPDD.
 #'
 #' @author Zihao Li, \email{zihao0104@@berkeley.edu}
+#' @name download_gpdd
 #' @param dataset_name A string of the name of the dataset.
 #' @return The requested dataset in tibble format.
 #' @importFrom readr read_csv
+#' @export
 #' @examples
 #' download_gpdd('data')
 #' download_gpdd('timeperiod')
