@@ -3,10 +3,6 @@
 \name{download_gpdd}
 \alias{download_gpdd}
 \title{Download Data from GPDD.}
-\usage{
-download_gpdd(dataset_name = c("data", "main", "timeperiod", "taxon",
-  "datasource", "biotope", "location"))
-}
 \arguments{
 \item{dataset_name}{A string of the name of the dataset.}
 }
