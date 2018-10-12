@@ -1,13 +1,26 @@
 Package: gpdd
-Title: What the Package Does (One Line, Title Case)
-Version: 0.0.0.9000
-Authors@R: 
-    person(given = "First",
-           family = "Last",
-           role = c("aut", "cre"),
-           email = "first.last@example.com")
-Description: What the package does (one paragraph).
-License: What license it uses
+Title: Download datasets from the Global Population Dynamics Database
+Version: 0.0.0.9001
+Authors@R: as.person(c(
+    "Carl Boettiger <cboettig@berkeley.edu> [aut, cre]", 
+    "Zihao Li <zihao0104@berkeley.edu> [aut]",
+    "Brian Blair <r@ninth.cat> [aut]"
+  ))
+Description: This package downloads datasets from the Global Population Dynamics Database (GPDD), 
+    a large collection of animal and plant population data. All data and information, including
+    metadata and user guide, could be accessed through the KNB website (https://doi.org/10.5063/F1BZ63Z8). 
+License: file LICENSE
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 6.0.1.9000
+RoxygenNote: 6.1.0
+Imports:
+    readr
+VignetteBuilder:
+    utils,
+    knitr
+Suggests: 
+    testthat,
+    utils,
+    knitr,
+    rmarkdown,
+    covr
