@@ -1,4 +1,7 @@
+<<<<<<< HEAD
+=======
 ^codecov\.yml$
+>>>>>>> 6a87a703284450e3c3245c01a7c551bbef8d341e
 ^README\.Rmd$
 ^.*\.Rproj$
 ^\.Rproj\.user$
