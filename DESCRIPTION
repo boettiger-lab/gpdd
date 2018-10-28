@@ -2,13 +2,15 @@ Package: gpdd
 Title: Download datasets from the Global Population Dynamics Database
 Version: 0.0.0.9001
 Authors@R: as.person(c(
-    "Carl Boettiger <cboettig@berkeley.edu> [aut, cre]", 
+    "Carl Boettiger <cboettig@berkeley.edu> [aut, cre]",
     "Zihao Li <zihao0104@berkeley.edu> [aut]",
     "Brian Blair <r@ninth.cat> [aut]"
   ))
-Description: This package downloads datasets from the Global Population Dynamics Database (GPDD), 
+Description: This package downloads datasets from the Global Population Dynamics Database (GPDD),
     a large collection of animal and plant population data. All data and information, including
-    metadata and user guide, could be accessed through the KNB website (https://doi.org/10.5063/F1BZ63Z8). 
+    metadata and user guide, could be accessed through the KNB website (https://doi.org/10.5063/F1BZ63Z8).
+URL: https://github.com/boettiger-lab/gpdd
+BugReports: https://github.com/boettiger-lab/gpdd/issues
 License: file LICENSE
 Encoding: UTF-8
 LazyData: true
@@ -18,7 +20,7 @@ Imports:
 VignetteBuilder:
     utils,
     knitr
-Suggests: 
+Suggests:
     testthat,
     utils,
     knitr,
