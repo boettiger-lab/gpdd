@@ -11,7 +11,6 @@
 #' download_gpdd('data')
 #' download_gpdd('timeperiod')
 
-library(readr)
 indexes <- 233:239
 names(indexes) <- c(
   "data",
@@ -30,5 +29,5 @@ download_gpdd <- function(dataset_name = names(indexes)) {
     indexes[[dataset_name]],
     ".1",
     sep = "")
-  read_csv(url)
+  readr::read_csv(url)
 }
