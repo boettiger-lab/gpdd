@@ -1,0 +1,119 @@
+{
+  "@context": ["https://doi.org/10.5063/schema/codemeta-2.0", "http://schema.org"],
+  "@type": "SoftwareSourceCode",
+  "identifier": "gpdd",
+  "description": "This package downloads datasets from the Global Population Dynamics Database (GPDD),\n    a large collection of animal and plant population data. All data and information, including\n    metadata and user guide, could be accessed through the KNB website (https://doi.org/10.5063/F1BZ63Z8).",
+  "name": "gpdd: Download datasets from the Global Population Dynamics Database",
+  "codeRepository": "https://github.com/boettiger-lab/gpdd",
+  "issueTracker": "https://github.com/boettiger-lab/gpdd/issues",
+  "license": "file LICENSE",
+  "version": "0.0.0.9001",
+  "programmingLanguage": {
+    "@type": "ComputerLanguage",
+    "name": "R",
+    "version": "3.5.1",
+    "url": "https://r-project.org"
+  },
+  "runtimePlatform": "R version 3.5.1 (2018-07-02)",
+  "author": [
+    {
+      "@type": "Person",
+      "givenName": "Carl",
+      "familyName": "Boettiger",
+      "email": "cboettig@berkeley.edu"
+    },
+    {
+      "@type": "Person",
+      "givenName": "Zihao",
+      "familyName": "Li",
+      "email": "zihao0104@berkeley.edu"
+    },
+    {
+      "@type": "Person",
+      "givenName": "Brian",
+      "familyName": "Blair",
+      "email": "r@ninth.cat"
+    }
+  ],
+  "maintainer": [
+    {
+      "@type": "Person",
+      "givenName": "Carl",
+      "familyName": "Boettiger",
+      "email": "cboettig@berkeley.edu"
+    }
+  ],
+  "softwareSuggestions": [
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "testthat",
+      "name": "testthat",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=testthat"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "utils",
+      "name": "utils"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "knitr",
+      "name": "knitr",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=knitr"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "rmarkdown",
+      "name": "rmarkdown",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=rmarkdown"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "covr",
+      "name": "covr",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=covr"
+    }
+  ],
+  "softwareRequirements": [
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "readr",
+      "name": "readr",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=readr"
+    }
+  ],
+  "readme": "https://github.com/bjb568/gpdd/blob/master/README.md",
+  "fileSize": "4.302KB",
+  "contIntegration": ["https://travis-ci.com/boettiger-lab/gpdd", "https://ci.appveyor.com/project/boettiger-lab/gpdd", "https://codecov.io/github/boettiger-lab/gpdd?branch=master"],
+  "developmentStatus": "https://www.tidyverse.org/lifecycle/#experimental"
+}

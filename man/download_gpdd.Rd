@@ -3,6 +3,9 @@
 \name{download_gpdd}
 \alias{download_gpdd}
 \title{Download Data from GPDD.}
+\usage{
+download_gpdd(dataset_name = names(indexes))
+}
 \arguments{
 \item{dataset_name}{A string of the name of the dataset.}
 }
@@ -13,8 +16,8 @@ The requested dataset in tibble format.
 Download Data from GPDD.
 }
 \examples{
-download_gpdd('data')
-download_gpdd('timeperiod')
+download_gpdd("data")
+download_gpdd("timeperiod")
 }
 \author{
 Zihao Li, \email{zihao0104@berkeley.edu}
