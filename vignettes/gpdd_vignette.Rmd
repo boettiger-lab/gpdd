@@ -27,15 +27,15 @@ The data is broken into seven files (in text/CSV format): data, main, timeperiod
 
 ## Using the Package
 
-The package contains only one function `download_gpdd`, which takes in only one argument `dataset_name`. This argument should be one of "data", "main", "timeperiod", "taxon", "datasource", "biotope", and "location". Other strings or non-string inputs will raise an error. Please also make sure to install `readr` before using this package. An example would be:
+The package contains only one function `download_gpdd`, which takes in only one argument `dataset_name`. This argument should be one of "gpdd_data", "gpdd_main", "gpdd_timeperiod", "gpdd_taxon", "gpdd_datasource", "gpdd_biotope", and "gpdd_location". Other strings or non-string inputs will raise an error. The downloaded data is also automatically saved to the working directory (in .csv format). Please also make sure to install `readr` and `rappdirs` before using this package. An example would be:
 
 ```{r}
+# By default, the argument is "gpdd_data".
 library(gpdd)
-# The default dataset is "data".
 data <- download_gpdd()
 summary(data)
 
-# Specifying the dataset to be downloaded.
-location <- download_gpdd("location")
+# Speficying the dataset to be downloaded.
+location <- download_gpdd("gpdd_location")
 summary(location)
 ```
