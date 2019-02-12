@@ -29,13 +29,20 @@ download_gpdd <- function(dataset_name = c("gpdd_data",
     }
     else {
        data <- switch(dataset_name[i],
-                   gpdd_data = readr::read_csv("https://knb.ecoinformatics.org/knb/d1/mn/v2/object/df35b.233.1"),
-                   gpdd_main = readr::read_csv("https://knb.ecoinformatics.org/knb/d1/mn/v2/object/df35b.234.1"),
-                   gpdd_timeperiod = readr::read_csv("https://knb.ecoinformatics.org/knb/d1/mn/v2/object/df35b.235.1"),
-                   gpdd_taxon = readr::read_csv("https://knb.ecoinformatics.org/knb/d1/mn/v2/object/df35b.236.1"),
-                   gpdd_datasource = readr::read_csv("https://knb.ecoinformatics.org/knb/d1/mn/v2/object/df35b.237.1"),
-                   gpdd_biotope = readr::read_csv("https://knb.ecoinformatics.org/knb/d1/mn/v2/object/df35b.238.1"),
-                   gpdd_location = readr::read_csv("https://knb.ecoinformatics.org/knb/d1/mn/v2/object/df35b.239.1")
+                   gpdd_data = readr::read_csv("https://knb.ecoinformatics.org/knb/d1/mn/v2/object/df35b.233.1",
+                                               col_types = "iidddddddd"),
+                   gpdd_main = readr::read_csv("https://knb.ecoinformatics.org/knb/d1/mn/v2/object/df35b.234.1",
+                                               col_types = "iiiiiccccccccdddcdcdddcdd"),
+                   gpdd_timeperiod = readr::read_csv("https://knb.ecoinformatics.org/knb/d1/mn/v2/object/df35b.235.1", 
+                                                     col_types = "iccidd"),
+                   gpdd_taxon = readr::read_csv("https://knb.ecoinformatics.org/knb/d1/mn/v2/object/df35b.236.1", 
+                                                col_types = "iccccccccccc"),
+                   gpdd_datasource = readr::read_csv("https://knb.ecoinformatics.org/knb/d1/mn/v2/object/df35b.237.1", 
+                                                     col_types = "icdcccccc"),
+                   gpdd_biotope = readr::read_csv("https://knb.ecoinformatics.org/knb/d1/mn/v2/object/df35b.238.1", 
+                                                  col_types = "icc"),
+                   gpdd_location = readr::read_csv("https://knb.ecoinformatics.org/knb/d1/mn/v2/object/df35b.239.1", 
+                                                   col_types = "iccccccddcddcddddddddcdd")
         )
         readr::write_csv(data, path = file.path(dir, csv_name))
     }

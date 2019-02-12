@@ -20,12 +20,16 @@ Quick start
 Usage
 -----
 
-This package contains one function `gpdd`, which takes one parameter `table` (the requested dataset) and returns the dataset. Allowed parameter inputs are "data", "main", "timeperiod", "taxon", "datasource", "biotope", and "location"; other inputs will raise an error. Example below:
+This package contains two functions: `download_gpdd` and `load_gpdd`. Both take two arguments: `dataset_name` (the requested dataset) and `dir` (the directory to be downloaded/loaded). Allowed `dataset_name` inputs are "gpdd\_data", "gpdd\_main", "gpdd\_timeperiod", "gpdd\_taxon", "gpdd\_datasource", "gpdd\_biotope" and "gpdd\_location", or a character vector containing several of those; other inputs will raise an error. Example below:
 
-    # Default argument as "data".
-    data <- download_gpdd()
-    summary(data)
+    # By default, all seven datasets will be downloaded/loaded.
+    download_gpdd()
+    load_gpdd()
+    summary(gpdd_data)
+    summary(gpdd_main)
 
-    # Specifying the dataset to be downloaded.
-    location <- download_gpdd("location")
-    summary(location)
+    # Specifying the dataset to be downloaded/loaded.
+    download_gpdd(c("gpdd_location", "gpdd_timeperiod"))
+    load_gpdd(c("gpdd_location", "gpdd_timeperiod"))
+    summary("gpdd_location")
+    summary("gpdd_timeperiod")

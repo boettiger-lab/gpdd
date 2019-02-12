@@ -30,7 +30,22 @@ load_gpdd <- function(dataset_name = c("gpdd_data",
       message(paste(dataset_name[i], "does not exist. Proceeding to the next dataset.\n", sep = ' '))
     }
     else {
-      dataframe <- readr::read_csv(file.path(dir, csv_name))
+      dataframe <- switch(csv_name,
+                        gpdd_data.csv = readr::read_csv(file.path(dir, csv_name),
+                                                        col_types = "iidddddddd"),
+                        gpdd_main.csv = readr::read_csv(file.path(dir, csv_name),
+                                                        col_types = "iiiiiccccccccdddcdcdddcdd"),
+                        gpdd_timeperiod.csv = readr::read_csv(file.path(dir, csv_name),
+                                                              col_types = "iccidd"),
+                        gpdd_taxon.csv = readr::read_csv(file.path(dir, csv_name),
+                                                         col_types = "iccccccccccc"),
+                        gpdd_datasource.csv = readr::read_csv(file.path(dir, csv_name),
+                                                              col_types = "icdcccccc"),
+                        gpdd_biotope.csv = readr::read_csv(file.path(dir, csv_name),
+                                                           col_types = "icc"),
+                        gpdd_location.csv = readr::read_csv(file.path(dir, csv_name),
+                                                            col_types = "iccccccddcddcddddddddcdd")
+      )
       assign(dataset_name[i], dataframe, envir = .GlobalEnv)
     }
   }

@@ -9,6 +9,5 @@
   else {
     packageStartupMessage('Loading datasets...')
     load_gpdd(datasets)
-    packageStartupMessage('All current datasets successfully loaded.')
   }
 }
