@@ -19,7 +19,8 @@ download_gpdd <- function(dataset_name = c("gpdd_data",
                                            "gpdd_taxon",
                                            "gpdd_datasource",
                                            "gpdd_biotope",
-                                           "gpdd_location"), dir = rappdirs::user_data_dir()) {
+                                           "gpdd_location"), dir = rappdirs::user_data_dir("gpdd")) {
+  dir.create(rappdirs::user_data_dir("gpdd"), recursive = TRUE, showWarnings = FALSE)
   for (i in 1:length(dataset_name)) {
     csv_name <- paste(dataset_name[i], ".csv", sep = '')
     check_character(dataset_name[i])

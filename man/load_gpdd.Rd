@@ -4,9 +4,9 @@
 \alias{load_gpdd}
 \title{Load GPDD data from local directory.}
 \usage{
-load_gpdd(dataset_name = c("gpdd_data", "gpdd_main", "gpdd_timeperiod",
-  "gpdd_taxon", "gpdd_datasource", "gpdd_biotope", "gpdd_location"),
-  dir = rappdirs::user_data_dir())
+load_gpdd(dataset_name = c("data", "main", "timeperiod", "taxon",
+  "datasource", "biotope", "location"),
+  dir = rappdirs::user_data_dir("gpdd"))
 }
 \arguments{
 \item{dataset_name}{A string of the name of the dataset.}
@@ -21,8 +21,8 @@ Load GPDD data from local directory.
 }
 \examples{
 load_gpdd()
-load_gpdd("gpdd_data")
-load_gpdd(c("gpdd_main", "gpdd_timeperiod"))
+load_gpdd("data")
+load_gpdd(c("main", "timeperiod"))
 }
 \author{
 Zihao Li, \email{zihao0104@berkeley.edu}

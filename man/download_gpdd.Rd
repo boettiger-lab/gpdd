@@ -6,7 +6,7 @@
 \usage{
 download_gpdd(dataset_name = c("gpdd_data", "gpdd_main",
   "gpdd_timeperiod", "gpdd_taxon", "gpdd_datasource", "gpdd_biotope",
-  "gpdd_location"), dir = rappdirs::user_data_dir())
+  "gpdd_location"), dir = rappdirs::user_data_dir("gpdd"))
 }
 \arguments{
 \item{dataset_name}{A string of the name of the dataset.}

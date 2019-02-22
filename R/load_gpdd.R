@@ -10,24 +10,26 @@
 #' @export
 #' @examples
 #' load_gpdd()
-#' load_gpdd("gpdd_data")
-#' load_gpdd(c("gpdd_main", "gpdd_timeperiod"))
+#' load_gpdd("data")
+#' load_gpdd(c("main", "timeperiod"))
 
 
-load_gpdd <- function(dataset_name = c("gpdd_data",
-                                       "gpdd_main",
-                                       "gpdd_timeperiod",
-                                       "gpdd_taxon",
-                                       "gpdd_datasource",
-                                       "gpdd_biotope",
-                                       "gpdd_location"),
-                      dir = rappdirs::user_data_dir()) {
+load_gpdd <- function(dataset_name = c("data",
+                                       "main",
+                                       "timeperiod",
+                                       "taxon",
+                                       "datasource",
+                                       "biotope",
+                                       "location"),
+                      dir = rappdirs::user_data_dir("gpdd")) {
+  gpdd <- vector("list", len = length(dataset_name))
+  names(gpdd) <- dataset_name
   for (i in 1:length(dataset_name)) {
-    csv_name <-  paste(dataset_name[i], '.csv', sep = '')
+    csv_name <-  paste("gpdd_", dataset_name[i], ".csv", sep = "")
     check_character(dataset_name[i])
-    check_name(dataset_name[i])
+    check_name(paste("gpdd_", dataset_name[i], sep = ""))
     if (!(file.exists(file.path(dir, csv_name)))) {
-      message(paste(dataset_name[i], "does not exist. Proceeding to the next dataset.\n", sep = ' '))
+      message(paste("gpdd_", dataset_name[i], " does not exist. Proceeding to the next dataset.\n", sep = ""))
     }
     else {
       dataframe <- switch(csv_name,
@@ -46,8 +48,9 @@ load_gpdd <- function(dataset_name = c("gpdd_data",
                         gpdd_location.csv = readr::read_csv(file.path(dir, csv_name),
                                                             col_types = "iccccccddcddcddddddddcdd")
       )
-      assign(dataset_name[i], dataframe, envir = .GlobalEnv)
+      gpdd[[i]] <- dataframe
     }
   }
   message("All datasets successfullly loaded.")
+  gpdd
 }

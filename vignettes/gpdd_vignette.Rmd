@@ -28,38 +28,37 @@ The data is broken into seven files (in text/CSV format): data, main, timeperiod
 ## Using the Package
 This package contains only two main functions: `download_gpdd` and `load_gpdd`. 
 
-`Download_gpdd` takes in two arguments: `dataset_name` and `dir`. The argument `dataset_name` should be one of "gpdd_data", "gpdd_main", "gpdd_timeperiod", "gpdd_taxon", "gpdd_datasource", "gpdd_biotope" and "gpdd_location", or a character vector containing several of those. Other strings or non-string inputs will raise an error. The downloaded data is automatically saved to the directory provided in `dir` (in .csv format). By default, if no arguments are provided, the function will download all seven datasets, and will save them in the directory `rappdirs::user_data_dir()`. If a requested dataset is already in the directory, then the function will show a message "xxx already exists. Proceeding to the next dataset", and continue to the next dataset.
+`Download_gpdd` takes in two arguments: `dataset_name` and `dir`. The argument `dataset_name` should be one of "gpdd_data", "gpdd_main", "gpdd_timeperiod", "gpdd_taxon", "gpdd_datasource", "gpdd_biotope" and "gpdd_location", or a character vector containing several of those. Other strings or non-string inputs will raise an error. The downloaded data is automatically saved to the directory provided in `dir` (in .csv format). By default, if no arguments are provided, the function will download all seven datasets, and will save them in the directory `rappdirs::user_data_dir("gpdd")`. If a requested dataset is already in the directory, then the function will show a message "xxx already exists. Proceeding to the next dataset", and continue to the next dataset.
 
-Similar to `download_gpdd`, `load_gpdd` also takes in two arguments: `dataset_name` and `dir`. These two arguments should follow the same rules as in `download_gpdd`, and the defaults are also the same. If a requested dataset is not in the directory, then the function will show a message "xxx does not exist. Proceeding to the next dataset", and continue to the next dataset. The loaded datasets will be saved to the global environment. If the dataset name is "gpdd_location", for instance, then the name of the loaded dataset will be `gpdd_location` as well. 
+Similar to `download_gpdd`, `load_gpdd` also takes in two arguments: `dataset_name` and `dir`. The argument `dataset_name` should be one of "data", "main", "timeperiod", "taxon", "datasource", "biotope" and "location", or a character vector containing several of those. Notice that users need not include "gpdd" in `dataset_name` as in `download_gpdd`. If a requested dataset is not in the directory, then the function will show a message "xxx does not exist. Proceeding to the next dataset", and continue to the next dataset. All loaded datasets will be saved to a list of dataframes. Therefore, it is required that users assign `load_gpdd` to a variable (see examples below). If the dataset name is "location", for instance, then the name of the loaded dataset within the list will be `location` as well.
 
 Please also make sure to install `readr` and `rappdirs` before using this package. 
 
 An example would be:
 
 ```{r}
-# By default, the argument is "gpdd_data".
 library(gpdd)
 
 # Speficy the dataset to be downloaded. Load the dataset.
 download_gpdd("gpdd_location")
-load_gpdd("gpdd_location")
-summary(gpdd_location)
+gpdd <- load_gpdd("location")
+summary(gpdd$location)
 
 # Download and Load several datasets at a time.
 download_gpdd(c("gpdd_biotope", "gpdd_timeperiod"))
-load_gpdd(c("gpdd_biotope", "gpdd_timeperiod"))
+gpdd <- load_gpdd(c("biotope", "timeperiod"))
 
 # Download to / Load from another directory
 test_path <- tempfile("gpdd", tempdir())
 dir.create(test_path, showWarnings = FALSE, recursive = TRUE)
 download_gpdd(c("gpdd_biotope", "gpdd_timeperiod"), test_path)
-load_gpdd(c("gpdd_biotope", "gpdd_timeperiod"), test_path)
+gpdd <- load_gpdd(c("biotope", "timeperiod"), test_path)
 
 # By default, all seven datasets will be downloaded and saved.
 # We can load all datasets.
 # No errors will be thrown if the dataset has already been downloaded or loaded.
 download_gpdd()
-load_gpdd()
-summary(gpdd_data)
-summary(gpdd_main)
+gpdd <- load_gpdd()
+summary(gpdd$data)
+summary(gpdd$main)
 ```
