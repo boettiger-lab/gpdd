@@ -17,13 +17,14 @@ LazyData: true
 RoxygenNote: 6.1.0
 Imports:
     readr,
-    rappdirs
+    rappdirs,
+    crayon,
+    utils
 VignetteBuilder:
     utils,
     knitr
 Suggests:
     testthat,
-    utils,
     knitr,
     rmarkdown,
     covr

@@ -2,4 +2,6 @@
 
 export(download_gpdd)
 export(load_gpdd)
+importFrom(crayon,green)
 importFrom(readr,read_csv)
+importFrom(utils,menu)

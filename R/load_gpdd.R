@@ -22,7 +22,7 @@ load_gpdd <- function(dataset_name = c("data",
                                        "biotope",
                                        "location"),
                       dir = rappdirs::user_data_dir("gpdd")) {
-  gpdd <- vector("list", len = length(dataset_name))
+  gpdd <- vector("list", length = length(dataset_name))
   names(gpdd) <- dataset_name
   for (i in 1:length(dataset_name)) {
     csv_name <-  paste("gpdd_", dataset_name[i], ".csv", sep = "")

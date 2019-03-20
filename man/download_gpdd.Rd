@@ -6,12 +6,15 @@
 \usage{
 download_gpdd(dataset_name = c("gpdd_data", "gpdd_main",
   "gpdd_timeperiod", "gpdd_taxon", "gpdd_datasource", "gpdd_biotope",
-  "gpdd_location"), dir = rappdirs::user_data_dir("gpdd"))
+  "gpdd_location"), dir = rappdirs::user_data_dir("gpdd"),
+  overwrite = "Ask")
 }
 \arguments{
 \item{dataset_name}{A string of the name of the dataset.}
 
 \item{dir}{A directory to which the datasets will be downloaded.}
+
+\item{overwrite}{Indicates whether to overwrite existing datasets or not.}
 }
 \value{
 The requested dataset in tibble format.

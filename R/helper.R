@@ -36,3 +36,18 @@ dataset_in_dir <- function(dir = rappdirs::user_data_dir()) {
   }
   data_exist
 }
+
+#' @importFrom crayon green
+#' @importFrom utils menu
+ask_yn <- function(...) {
+  choices <- c("Yes", "No")
+  cat(crayon::green(paste0(..., "\n", collapse = "")))
+  utils::menu(choices) == which(choices == "Yes")
+}
+
+
+
+
+
+
+
