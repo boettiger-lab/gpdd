@@ -20,16 +20,20 @@ Quick start
 Usage
 -----
 
-This package contains two functions: `download_gpdd` and `load_gpdd`. Both take two arguments: `dataset_name` (the requested dataset) and `dir` (the directory to be downloaded/loaded). Allowed `dataset_name` inputs are "gpdd\_data", "gpdd\_main", "gpdd\_timeperiod", "gpdd\_taxon", "gpdd\_datasource", "gpdd\_biotope" and "gpdd\_location", or a character vector containing several of those; other inputs will raise an error. Example below:
+This package contains two functions: `download_gpdd` and `load_gpdd`. `download_gpdd` takes three arguments: `dataset_name` (the requested dataset), `dir` (the directory to be downloaded/loaded), and `overwrite` (whether to overwrite existing datasets). Allowed `dataset_name` inputs are "gpdd_data", "gpdd_main", "gpdd_timeperiod", "gpdd_taxon", "gpdd_datasource", "gpdd_biotope" and "gpdd_location", or a character vector containing several of those; other inputs will raise an error. Default argument of `dir` is the directory created by `rappdirs::user_data_dir("gpdd")`. The user can also specify a specific directory. Default argument of `overwrite` is "Ask", where it asks the user to specify whether to overwrite an existing dataset whenever encountering one. The user can also specify "Yes" or "No" for all datasets. Example below:
 
     # By default, all seven datasets will be downloaded/loaded.
-    download_gpdd()
-    load_gpdd()
-    summary(gpdd_data)
-    summary(gpdd_main)
+    download_gpdd(overwrite = "No")
+    gpdd <- load_gpdd()
+    summary(gpdd$data)
+    summary(gpdd$main)
 
     # Specifying the dataset to be downloaded/loaded.
-    download_gpdd(c("gpdd_location", "gpdd_timeperiod"))
-    load_gpdd(c("gpdd_location", "gpdd_timeperiod"))
-    summary("gpdd_location")
-    summary("gpdd_timeperiod")
+    download_gpdd(c("gpdd_location", "gpdd_timeperiod"), overwrite = "No")
+    gpdd <- load_gpdd(c("location", "gpdd_timeperiod"))
+    summary("gpdd$location")
+    summary("gpdd$timeperiod")
+    
+    # Changing "overwrite" argument.
+    download_gpdd(c("gpdd_location", "gpdd_timeperiod"), overwrite = "Yes")
+    download_gpdd(c("gpdd_location", "gpdd_timeperiod"), overwrite = "No")
